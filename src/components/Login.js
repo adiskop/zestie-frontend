@@ -24,7 +24,7 @@ import { login } from "../actions/currentUser.js"
 
 
     return (
-        <form onSubmit={login}>
+        <form onSubmit={handleSubmit}>
             <input placeholder="username" value= {loginFormData.username} name= "username"
              type="text" onChange={handleInputChange} />
             <input placeholder="password" value= {loginFormData.password} name= "password"
