@@ -14,9 +14,6 @@ export const clearCurrentUser = () => {
 }
 
 
-
-
-
 // asynchronout actions 
 export const login = credentials => {
     console.log("credentials are", credentials)
