@@ -2,7 +2,7 @@ import { resetLoginForm } from "./loginForm"
 // synchronout actions
 export const setCurrentUser = user => {
     return{
-        type: "SET CURRENT_USER", 
+        type: "SET_CURRENT_USER", 
         user
     }
 }
