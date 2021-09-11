@@ -6,17 +6,17 @@ import { Link } from "react-router-dom";
 
 const MyDishes = props => {
     const dishCards = props.dishes.length > 0 ?
-    props.dishes.map(t => (<p key={t.id}><Link to={`/dishes/${t.id}`}>{t.attributes.name}</Link></p>)) :
-    null
-
-  return dishCards
-}
+      props.dishes.map(d => (<p key={d.id}><Link to={`/dishes/${d.id}`}>{d.attributes.name}</Link></p>)) :
+      null
+  
+    return dishCards
+  }
 
 
 
 const mapStateToProps = state => {
     return {
-        dishses: state.MyDishes
+        dishes: state.myDishes
     }
 }
 
