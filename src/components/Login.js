@@ -23,8 +23,10 @@ import { login } from "../actions/currentUser.js"
 
     return (
         <form onSubmit={handleSubmit}>
-        <input placeholder="username" value={loginFormData.username} name="username" type="text" onChange={handleInputChange} />
-        <input placeholder="password" value={loginFormData.password} name="password" type="text" onChange={handleInputChange} />
+        <input placeholder="username" value={loginFormData.username}
+         name="username" type="text" onChange={handleInputChange} />
+        <input placeholder="password" value={loginFormData.password}
+         name="password" type="text" onChange={handleInputChange} />
         <input type="submit" value="Log In"/>
       </form>
     )
