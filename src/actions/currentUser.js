@@ -1,7 +1,8 @@
 import { resetLoginForm } from "./loginForm"
+import { getMyDishes } from "./myDishes"
 // synchronout actions
 export const setCurrentUser = user => {
-    return{
+    return {
         type: "SET_CURRENT_USER", 
         user
     }
@@ -16,7 +17,6 @@ export const clearCurrentUser = () => {
 
 // asynchronout actions 
 export const login = credentials => {
-    console.log("credentials are", credentials)
     return dispatch => {
         return fetch("http://localhost:3000/api/v1/login", {
             credentials: "include",
@@ -32,6 +32,7 @@ export const login = credentials => {
             alert(response.error)
           } else {
               dispatch(setCurrentUser(response.data))
+              dispatch(getMyDishes())
               dispatch(resetLoginForm())
           }
         })
@@ -55,6 +56,7 @@ export const getCurrentUser = () => {
             alert(response.error)
           } else {
               dispatch(setCurrentUser(response.data))
+              dispatch(getMyDishes())
           }
         })
         .catch(console.log)
