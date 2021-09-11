@@ -17,7 +17,7 @@ export const clearCurrentUser = () => {
 
 
 // asynchronout actions 
-export const login = credentials => {
+export const login = (credentials, history) => {
     return dispatch => {
         return fetch("http://localhost:3000/api/v1/login", {
             credentials: "include",
@@ -35,13 +35,14 @@ export const login = credentials => {
               dispatch(setCurrentUser(response.data))
               dispatch(getMyDishes())
               dispatch(resetLoginForm())
+              history.push('/')
           }
         })
         .catch(console.log)
     }
 }
 
-export const signup = credentials => {
+export const signup = (credentials, history) => {
     return dispatch => {
         const userInfo = {
             user: credentials
@@ -62,9 +63,20 @@ export const signup = credentials => {
               dispatch(setCurrentUser(response.data))
               dispatch(getMyDishes())
               dispatch(resetSignupForm())
+              history.push('/')
           }
         })
         .catch(console.log)
+    }
+}
+
+export const logout = event => {
+    return dispatch => {
+        dispatch(clearCurrentUser())
+        return fetch("http://localhost:3000/api/v1/logout", {
+            credentials: "include", 
+            method: "DELETE"
+        })
     }
 }
 
@@ -91,12 +103,3 @@ export const getCurrentUser = () => {
     }
 }
 
-export const logout = () => {
-    return dispatch => {
-        dispatch(clearCurrentUser())
-        return fetch("http://localhost:3000/api/v1/logout", {
-            credentials: "include", 
-            method: "DELETE"
-        })
-    }
-}
