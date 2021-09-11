@@ -1,6 +1,33 @@
+// synchronout actions 
+
 export const setMyDishes = dishes => {
-    return{
+    return {
         type: "SET_MY_DISHES", 
-        trips
+        dishes
+    }
+}
+
+// asynchronout actions 
+
+export const getMyDishes = () => {
+    return dispatch => {
+        return fetch("http://localhost:3000/api/v1/dishes", {
+            credentials: "include",
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            
+        })
+        .then(r => r.json())
+        .then(response => {
+          if (response.error) {
+            alert(response.error)
+          } else {
+              console.log(response.data)
+              dispatch(setMyDishes(response.data))
+          }
+        })
+        .catch(console.log)
     }
 }
