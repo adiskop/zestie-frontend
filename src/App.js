@@ -8,6 +8,7 @@ import Login from './components/Login';
 import Logout from './components/Logout';
 import Signup from './components/Signup.js';
 import MyDishes from './components/MyDishes';
+import NewDishForm from './components/NewDishForm';
 
 import { Switch, Route, withRouter } from 'react-router-dom' 
 
@@ -29,7 +30,8 @@ class App extends React.Component {
           <Route exact path='/login' component ={Login}/>
           <Route exact path='/' render={(props)=> loggedIn ? <MyDishes
           {...props}/> : <Home {...props}/>}/>
-          <Route exact path='/my-dishes' component ={MyDishes}/>
+          <Route exact path='/dishes' component ={MyDishes}/>
+          <Route exact path='/dishes/new' component ={NewDishForm}/>
           </Switch>
       </div>
       
