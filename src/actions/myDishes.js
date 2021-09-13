@@ -13,6 +13,13 @@ export const clearDishes = () => {
     }
 }
 
+export const addDish = dish => {
+    return {
+        type: "ADD_DISH",
+        dish
+    }
+}
+
 // asynchronout actions 
 
 export const getMyDishes = () => {
@@ -35,4 +42,38 @@ export const getMyDishes = () => {
         })
         .catch(console.log)
     }
+}
+
+export const createDish = (dishData, history) => {
+    return dispatch => {
+        const sendableDishData = {
+            name: dishData.name,
+            picture: dishData.picture,
+            ingredients: dishData.ingredients,
+            directions: dishData.directions,
+            cook_time: dishData.cookTime,
+            user_id: dishData.userId
+          }
+        return fetch("http://localhost:3000/api/v1/dishes", {
+            credentials: "include",
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(sendableDishData)
+        })
+            .then(r => r.json())
+            .then(resp => {
+            if (resp.error) {
+            alert(resp.error)
+            } else {
+            dispatch(addDish(resp.data))
+            //dispatch(resetDishForm())
+            history.push(`/dishes/${resp.data.id}`)
+           
+        }
+      })
+      .catch(console.log)
+
+  }
 }
