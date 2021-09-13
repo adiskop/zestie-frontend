@@ -1,8 +1,9 @@
 import React from "react";
 import { updateNewDishForm } from "../actions/newDishForm";
+import { createDish } from "../actions/myDishes";
 import { connect } from "react-redux";
 
-const NewDishForm = ({formData,userId,dish}) => {
+const NewDishForm = ({formData,history,updateNewDishForm,userId,dish, createDish}) => {
 
 const {name,picture,ingredients,directions,cookTime} = formData
 
@@ -12,7 +13,13 @@ const handleChange = event => {
     updateNewDishForm(name, value)
 }
 
-const handleSubmit = event => event.preventDefault()
+const handleSubmit = event => {
+    event.preventDefault()
+    createDish({
+        ...formData,
+        userId
+    })
+}
 
     return (
         <form onSubmit={handleSubmit}>
@@ -60,5 +67,5 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps, {updateNewDishForm})(NewDishForm); 
+export default connect(mapStateToProps, {updateNewDishForm, createDish})(NewDishForm); 
 
