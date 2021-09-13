@@ -10,7 +10,7 @@ const NavBar = ({currentUser, loggedIn }) => {
         <div className="NavBar">
           <NavLink exact activeClass to="/dishes">My Dishes  |  </NavLink>
           <NavLink exact activeClass to="/dishes/new">New Recipe  |  </NavLink>
-          {loggedIn ? <Logout/> : null}
+          { loggedIn ? <><p id="loggedin">Logged in as {currentUser.attributes.name}</p><Logout/></> : null}
         </div>
     )
 }
