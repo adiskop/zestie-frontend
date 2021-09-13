@@ -1,6 +1,6 @@
 import { resetLoginForm } from "./loginForm"
 import { resetSignupForm } from "./signupForm"
-import { getMyDishes } from "./myDishes"
+import { getMyDishes, clearDishes } from "./myDishes"
 // synchronout actions
 export const setCurrentUser = user => {
     return {
@@ -73,6 +73,7 @@ export const signup = (credentials, history) => {
 export const logout = event => {
     return dispatch => {
         dispatch(clearCurrentUser())
+        dispatch(clearDishes())
         return fetch("http://localhost:3000/api/v1/logout", {
             credentials: "include", 
             method: "DELETE"
