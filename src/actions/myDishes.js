@@ -7,6 +7,12 @@ export const setMyDishes = dishes => {
     }
 }
 
+export const clearDishes = () => {
+    return {
+      type: "CLEAR_DISHES"  
+    }
+}
+
 // asynchronout actions 
 
 export const getMyDishes = () => {
