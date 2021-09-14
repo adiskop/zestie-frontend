@@ -17,8 +17,8 @@ const handleSubmit = event => {
     event.preventDefault()
     createDish({
         ...formData,
-        userId
-    })
+        userId},
+        history)
 }
 
     return (
