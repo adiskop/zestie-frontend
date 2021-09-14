@@ -1,16 +1,16 @@
 import React from "react";
-import { updateNewDishForm } from "../actions/newDishForm";
+import { updateDishForm } from "../actions/dishForm";
 import { createDish } from "../actions/myDishes";
 import { connect } from "react-redux";
 
-const NewDishForm = ({formData,history,updateNewDishForm,userId,dish, createDish}) => {
+const DishForm = ({formData,history,updateDishForm,userId,dish, createDish}) => {
 
 const {name,picture,ingredients,directions,cookTime} = formData
 
 const handleChange = event => {
     console.log("trigger Handle change")
     const { name, value } = event.target
-    updateNewDishForm(name, value)
+    updateDishForm(name, value)
 }
 
 const handleSubmit = event => {
@@ -61,11 +61,11 @@ const handleSubmit = event => {
 const mapStateToProps = state => {
     const userId = state.currentUser ? state.currentUser.id : ""
     return{
-        formData: state.newDishForm,
+        formData: state.dishForm,
         userId
     }
 }
 
 
-export default connect(mapStateToProps, {updateNewDishForm, createDish})(NewDishForm); 
+export default connect(mapStateToProps, {updateDishForm, createDish})(DishForm); 
 

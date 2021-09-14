@@ -8,13 +8,13 @@ const initialState = {
 
 export default (state=initialState, action) => {
     switch (action.type) {
-        case "UPDATE_NEW_DISH_FORM":
+        case "UPDATE_DISH_FORM":
             const returnVal = {
                 ...state,
                 [action.formData.name]: action.formData.value
               }
               return returnVal
-        case "RESET_NEW_DISH_FORM":
+        case "RESET_DISH_FORM":
             return initialState
       default:
         return state

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 //import {Link} from 'react-router-dom'
 
 const DishCard = ({ dish }) => {
@@ -10,6 +11,7 @@ const DishCard = ({ dish }) => {
                 <p>{dish.attributes.ingredients}</p>
                 <p>{dish.attributes.directions}</p>
                 <p>{dish.attributes.cook_time}</p>
+                <Link to={`/dishes/${dish.id}/edit`}>Edit This Dish</Link>
             </div> :
       <p>This the the Dish card with no dish!</p>
     )

@@ -1,4 +1,4 @@
-import { resetNewDishForm } from "./newDishForm"
+import { resetDishForm } from "./dishForm"
 // synchronout actions 
 
 export const setMyDishes = dishes => {
@@ -69,7 +69,7 @@ export const createDish = (dishData, history) => {
             alert(resp.error)
             } else {
             dispatch(addDish(resp.data))
-            dispatch(resetNewDishForm())
+            dispatch(resetDishForm())
             history.push(`/dishes/${resp.data.id}`)
            
         }
