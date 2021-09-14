@@ -51,3 +51,10 @@
 a.active {
   color: rgb(231, 102, 33);
 }
+
+.dish-picture {
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  padding: 5px;
+  width: 700px;
+}
