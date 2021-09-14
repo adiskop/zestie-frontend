@@ -7,7 +7,7 @@ export default (state = [], action) => {
       case "CLEAR_DISHES":
       return initialState
       case "ADD_DISH":
-      return state.dishes.concat(action.dishes)
+      return state.concat(action.dish)
       default:
         return state
     }
