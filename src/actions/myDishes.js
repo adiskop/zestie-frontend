@@ -69,7 +69,7 @@ export const createDish = (dishData, history) => {
             alert(resp.error)
             } else {
             dispatch(addDish(resp.data))
-            dispatch(resetDishForm())
+            dispatch(resetNewDishForm())
             history.push(`/dishes/${resp.data.id}`)
            
         }
