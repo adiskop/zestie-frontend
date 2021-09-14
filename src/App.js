@@ -9,7 +9,9 @@ import Logout from './components/Logout';
 import Signup from './components/Signup.js';
 import MyDishes from './components/MyDishes';
 import NewDishForm from './components/NewDishForm';
+import DishCard from './components/DishCard';
 import { Switch, Route, withRouter } from 'react-router-dom' 
+
 
 
 class App extends React.Component {
@@ -19,15 +21,22 @@ class App extends React.Component {
   }
 
   render(){
-    const { loggedIn } = this.props
+    const { loggedIn, dishes } = this.props
     return (
       <div className="App">
         {loggedIn ? <NavBar/> : <Home/> }
         <Switch>
-          <Route exact path='/signup' component ={Signup}/>
+          <Route exact path='/signup' render={({history})=><Signup history={history}/>}/>
           <Route exact path='/login' component ={Login}/>
           <Route exact path='/dishes' component ={MyDishes}/>
           <Route exact path='/dishes/new' component ={NewDishForm}/>
+          <Route exact path='/dishes/:id' render={props => {
+              
+              const dish = dishes.find(dish => dish.id === props.match.params.id)
+              console.log(dish)
+              return <DishCard dish={dish} {...props}/>
+            }
+          }/>
           </Switch>
       </div>
       
@@ -37,7 +46,8 @@ class App extends React.Component {
 
 const mapStateToProps = state => {
   return ({
-    loggedIn: !!state.currentUser
+    loggedIn: !!state.currentUser,
+    dishes: state.myDishes
   })
 }
 
