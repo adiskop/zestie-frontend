@@ -7,7 +7,7 @@ const MyDishes = props => {
     const dishCards = props.dishes.length > 0 ?
       props.dishes.map(d => (<p key={d.id}>
         <Link to={`/dishes/${d.id}`}>{d.attributes.name} ---> 
-        {<img src ={d.attributes.picture} className="dishes-picture-small"/>}
+        {<img src ={d.attributes.picture} className="dishes-picture-small" alt=""/>}
         </Link></p>)) :
       null
   
