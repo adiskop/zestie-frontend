@@ -1,9 +1,8 @@
 import React from "react";
 import { updateDishForm } from "../actions/dishForm";
-import { createDish } from "../actions/myDishes";
 import { connect } from "react-redux";
 
-const DishForm = ({formData,history,updateDishForm,userId,dish, createDish}) => {
+const DishForm = ({formData,updateDishForm,userId,dish, handleSubmit, editMode}) => {
 
 const {name,picture,ingredients,directions,cookTime} = formData
 
@@ -13,48 +12,46 @@ const handleChange = event => {
     updateDishForm(name, value)
 }
 
-const handleSubmit = event => {
-    event.preventDefault()
-    createDish({
-        ...formData,
-        userId},
-        history)
-}
-
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={event => {
+            event.preventDefault()
+            handleSubmit(formData)
+          }}>
        <br/><input
               placeholder="Name"
               name="name"
               onChange={handleChange}
-              defaultValue={name}
+              value={name}
             /><br/> 
             <input
               placeholder="Picture"
               name="picture"
               onChange={handleChange}
-              defaultValue={picture}
+              value={picture}
             /><br/>  
             <input
                 placeholder="Ingredients"
                 name="ingredients"
                 onChange={handleChange}
-                defaultValue={ingredients}
+                value={ingredients}
                 /><br/> 
             <input
                 placeholder="Directions"
                 name="directions"
                 onChange={handleChange}
-                defaultValue={directions}
+                value={directions}
                 /><br/> 
             <input
                 placeholder="Cook Time"
                 name="cookTime"
                 onChange={handleChange}
-                defaultValue={cookTime}
+                value={cookTime}
                 /><br/> 
                    
-            <input type="submit" value="Create Dish"/>
+            <input
+                type="submit"
+                value={editMode ? "Update Trip" : "Create Trip" }
+            />
         </form>
 )};
 
@@ -67,5 +64,5 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps, {updateDishForm, createDish})(DishForm); 
+export default connect(mapStateToProps, {updateDishForm})(DishForm); 
 

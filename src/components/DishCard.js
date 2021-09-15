@@ -7,7 +7,7 @@ const DishCard = ({ dish }) => {
         dish?
         <div>
             <h3>{dish.attributes.name}</h3>
-                <img src ={dish.attributes.picture} className="dish-picture"/>
+                <img src ={dish.attributes.picture} className="dish-picture" alt=""/>
                 <p>{dish.attributes.ingredients}</p>
                 <p>{dish.attributes.directions}</p>
                 <p>{dish.attributes.cook_time}</p>
