@@ -7,8 +7,9 @@ import Home from './components/Home';
 import Login from './components/Login';
 import Signup from './components/Signup.js';
 import MyDishes from './components/MyDishes';
-import DishForm from './components/DishForm';
 import DishCard from './components/DishCard';
+import NewDishFormWrapper from './components/NewDishFormWrapper';
+import EditDishFormWrapper from './components/EditDishFormWrapper';
 import { Switch, Route, withRouter } from 'react-router-dom' 
 
 
@@ -23,12 +24,12 @@ class App extends React.Component {
     const { loggedIn, dishes } = this.props
     return (
       <div className="App">
-        {loggedIn ? <NavBar/> : <Home/> }
+        {loggedIn ? <NavBar location={this.props.location}/> : <Home/> }
         <Switch>
           <Route exact path='/signup' render={({history})=><Signup history={history}/>}/>
           <Route exact path='/login' component ={Login}/>
           <Route exact path='/dishes' component ={MyDishes}/>
-          <Route exact path='/dishes/new' component ={DishForm}/>
+          <Route exact path='/dishes/new' component ={NewDishFormWrapper}/>
           <Route exact path='/dishes/:id' render={props => {
               
               const dish = dishes.find(dish => dish.id === props.match.params.id)
@@ -39,8 +40,8 @@ class App extends React.Component {
           <Route exact path='/dishes/:id/edit' render={props => {
               
               const dish = dishes.find(dish => dish.id === props.match.params.id)
-              console.log(dish)
-              return <DishForm dish={dish} {...props}/>
+              
+              return <EditDishFormWrapper dish={dish} {...props}/>
             }
           }/>
           </Switch>
