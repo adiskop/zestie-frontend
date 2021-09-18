@@ -29,7 +29,7 @@ const Styles = styled.div`
     return (
       <Styles>
         <Navbar expand="lg">
-      <Navbar.Brand href="/">ZESTIE</Navbar.Brand>
+      <Navbar.Brand href="/"><strong>Zestie</strong></Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">

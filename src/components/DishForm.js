@@ -1,6 +1,8 @@
 import React from "react";
 import { updateDishForm } from "../actions/dishForm";
 import { connect } from "react-redux";
+import { Form, Button } from "react-bootstrap";
+
 
 const DishForm = ({formData,updateDishForm,userId,dish, handleSubmit, editMode}) => {
 
@@ -13,46 +15,75 @@ const handleChange = event => {
 }
 
     return (
-        <form onSubmit={event => {
+       
+
+<Form onSubmit={event => {
             event.preventDefault()
             handleSubmit(formData)
-          }}>``
-       <br/><input
-              placeholder="Name"
+          }}>
+
+<Form.Group className="mb-3" controlId="formBasicName">
+  <Form.Label>Name</Form.Label>
+  <Form.Control placeholder="Name"
               name="name"
               onChange={handleChange}
-              value={name}
-            /><br/> 
-            <input
-              placeholder="Picture"
+              value={name} />
+</Form.Group>
+
+<Form.Group className="mb-3" controlId="formBasicEmail">
+  <Form.Label>Picture URL</Form.Label>
+  <Form.Control placeholder="Picture"
               name="picture"
               onChange={handleChange}
-              value={picture}
-            /><br/>  
-            <input
-                placeholder="Ingredients"
+              value={picture} />
+</Form.Group>
+
+<Form.Group className="mb-3" controlId="formBasicEmail">
+  <Form.Label>Ingredients</Form.Label>
+  <Form.Control placeholder="Ingredients"
                 name="ingredients"
                 onChange={handleChange}
-                value={ingredients}
-                /><br/> 
-            <input
-                placeholder="Directions"
+                value={ingredients} />
+</Form.Group>
+
+<Form.Group className="mb-3" controlId="formBasicEmail">
+  <Form.Label>Directions</Form.Label>
+  <Form.Control placeholder="Directions"
                 name="directions"
                 onChange={handleChange}
-                value={directions}
-                /><br/> 
-            <input
-                placeholder="Cook Time"
+                value={directions} />
+</Form.Group>
+
+<Form.Group className="mb-3" controlId="formBasicEmail">
+  <Form.Label>Cook Time</Form.Label>
+  <Form.Control  placeholder="Cook Time"
                 name="cookTime"
                 onChange={handleChange}
-                value={cookTime}
-                /><br/> 
-                   
-            <input
-                type="submit"
-                value={editMode ? "Update Recipe" : "Create Recipe" }
-            />
-        </form>
+                value={cookTime} />
+</Form.Group>
+
+<Button>
+<input variant="primary" type="submit" value={editMode ? "Update Recipe" : "Create Recipe" }>
+
+</input>
+</Button>
+</Form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 )};
 
 const mapStateToProps = state => {
