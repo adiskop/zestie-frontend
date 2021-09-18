@@ -1,19 +1,35 @@
 import React from "react";
 import { Link } from "react-router-dom";
-//import {Link} from 'react-router-dom'
+import { Card, Button } from "react-bootstrap";
 
 const DishCard = ({ dish }) => {
     return (
         dish?
-        <div>
-            <h3>{dish.attributes.name}</h3>
-                <img src ={dish.attributes.picture} className="dish-picture" alt=""/>
-                <p><strong>Ingredients:</strong> {dish.attributes.ingredients}</p>
-                <p><strong>Directions:</strong> {dish.attributes.directions}</p>
-                <p><strong>Cook Time:</strong> {dish.attributes.cook_time}</p>
-                <Link to={`/dishes/${dish.id}/edit`}>Edit This Recipe</Link>
+        <div className= "card"> 
+                <Card style={{ width: '30rem'}} class="card">
+                <Card.Img variant="top" src={dish.attributes.picture} />
+                <Card.Body>
+                <Card.Title>{dish.attributes.name}</Card.Title>
+                <Card.Text>
+                Ingredients: {dish.attributes.ingredients}
+                </Card.Text>
+                <Card.Text>
+                Directions: {dish.attributes.directions}
+                </Card.Text>
+                <Card.Text>
+                Cook Time: {dish.attributes.cook_time}
+                </Card.Text>
+                <Link to={`/dishes/${dish.id}/edit`}>
+                    <Button variant="primary" size="lg">
+                        Edit This Recipe
+                    </Button>
+                    </Link>
+               
+            </Card.Body>
+            </Card>
             </div> :
       <p>This the the Dish card with no dish!</p>
+
     )
 }
 

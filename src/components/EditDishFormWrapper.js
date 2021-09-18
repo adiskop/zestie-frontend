@@ -3,6 +3,7 @@ import DishForm from './DishForm'
 import { updateDish, deleteDish } from '../actions/myDishes'
 import { setFormDataForEdit, resetDishForm } from '../actions/dishForm'
 import { connect } from 'react-redux'
+import { Button } from 'react-bootstrap';
 
 class EditDishFormWrapper extends React.Component {
   componentDidMount(){
@@ -31,7 +32,7 @@ class EditDishFormWrapper extends React.Component {
     return  <>
               <DishForm editMode handleSubmit={this.handleSubmit} />
               <br/>
-              <button style={{color: "red"}} onClick={()=>deleteDish(dishId, history)}>Delete Recipe</button>
+              <Button variant="primary" size="lg" onClick={()=>deleteDish(dishId, history)}>Delete Recipe</Button>
             </>
   }
 };

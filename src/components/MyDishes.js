@@ -10,8 +10,14 @@ const MyDishes = props => {
         {<img src ={d.attributes.picture} className="dishes-picture-small" alt=""/>}
         </Link></p>)) :
       null
+
+
   
     return dishCards
+
+
+
+    
   }
 
 

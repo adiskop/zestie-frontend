@@ -2,6 +2,7 @@ import React from "react";
 import { updateDishForm } from "../actions/dishForm";
 import { connect } from "react-redux";
 import { Form, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 
 const DishForm = ({formData,updateDishForm,userId,dish, handleSubmit, editMode}) => {
@@ -67,7 +68,21 @@ const handleChange = event => {
 
 </input>
 </Button>
+
+
+
+
+
+
+
+
+
 </Form>
+
+
+
+
+
 
 
 
