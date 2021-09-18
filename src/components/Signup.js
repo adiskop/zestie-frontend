@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from 'react-redux'
 import { updateSignupForm } from "../actions/signupForm.js"
 import { signup } from "../actions/currentUser.js"
+import { Form, Button } from "react-bootstrap";
 
 
 
@@ -24,17 +25,55 @@ import { signup } from "../actions/currentUser.js"
 
 
     return (
-        <form onSubmit={handleSubmit}>
-             <input placeholder="name" value= {signupFormData.name} name= "name"
-             type="text" onChange={handleInputChange} />
-            <input placeholder="username" value= {signupFormData.username} name= "username"
-             type="text" onChange={handleInputChange} />
-            <input placeholder="password" value= {signupFormData.password} name= "password"
-             type="text" onChange={handleInputChange} />
-            <input type= "submit" value="Sign Up" />
-        </form>
+       
+
+
+<Form onSubmit={handleSubmit}>
+
+<Form.Group className="mb-3" controlId="formBasicName">
+  <Form.Label>Name</Form.Label>
+  <Form.Control type="text" placeholder="Enter name" value={signupFormData.name}
+         name="name" onChange={handleInputChange} />
+</Form.Group>
+
+<Form.Group className="mb-3" controlId="formBasicEmail">
+  <Form.Label>Username</Form.Label>
+  <Form.Control type="text" placeholder="Enter username" value={signupFormData.username}
+         name="username" onChange={handleInputChange} />
+  <Form.Text className="text-muted">
+    We'll never share your username with anyone else.
+  </Form.Text>
+</Form.Group>
+
+<Form.Group className="mb-3" controlId="formBasicPassword">
+  <Form.Label>Password</Form.Label>
+  <Form.Control type="password" placeholder="Password" value= {signupFormData.password}
+         name="password" onChange={handleInputChange} />
+</Form.Group>
+
+<Button variant="primary" type="submit">
+  Sign Up
+</Button>
+</Form>
+
+
+
+
+
+
+
+
+
+
+
+
     )
 }
+
+
+
+
+
 
 const mapStateToProps = state => {
     return {

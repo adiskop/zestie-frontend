@@ -1,5 +1,5 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+//import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { connect } from 'react-redux'
 import { getCurrentUser } from "./actions/currentUser.js"
@@ -12,6 +12,8 @@ import DishCard from './components/DishCard';
 import NewDishFormWrapper from './components/NewDishFormWrapper';
 import EditDishFormWrapper from './components/EditDishFormWrapper';
 import { Switch, Route, withRouter } from 'react-router-dom' 
+import { Layout } from './components/layout';
+import { Jumbotron } from './components/Jumbotron';
 
 
 
@@ -24,8 +26,12 @@ class App extends React.Component {
   render(){
     const { loggedIn, dishes } = this.props
     return (
-      <div className="App">
+      <React.Fragment>
         {loggedIn ? <NavBar location={this.props.location}/> : <Home/> }
+        <Jumbotron/>
+        <Layout>
+        
+
         <Switch>
           <Route exact path='/signup' render={({history})=><Signup history={history}/>}/>
           <Route exact path='/login' component ={Login}/>
@@ -46,7 +52,8 @@ class App extends React.Component {
             }
           }/>
           </Switch>
-      </div>
+          </Layout>
+      </React.Fragment>
       
     );
   }

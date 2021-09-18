@@ -1,18 +1,57 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { Nav, Navbar } from 'react-bootstrap';
+import styled from "styled-components";
 import { connect } from 'react-redux'
-import { NavLink } from "react-router-dom";
+import { Button } from "react-bootstrap";
+
 import Logout from "./Logout";
 
+const Styles = styled.div`
+
+.navbar {
+    background-color: #222;
+  }
+
+  a, .navbar-brand, .navbar-nav .nav-link {
+    color: #bbb;
+  }
+
+  &:hover {
+    color: white;
+  }
+}
+`;
 
 
-const NavBar = ({currentUser, loggedIn }) => {
+ const NavBar = ({currentUser, loggedIn }) => {
+
     return (
-        <div className="NavBar">
-          <NavLink exact activeClassName="active" to="/dishes">My Recipes</NavLink>
-          <NavLink exact activeClassName="active" to="/dishes/new">New Recipe</NavLink>
-          { loggedIn ? <><p id="loggedin">Logged in as {currentUser.attributes.name}</p><Logout/></> : null}
-          <br/><br/><br/>
-        </div>
+      <Styles>
+        <Navbar expand="lg">
+      <Navbar.Brand href="/">ZESTIE</Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="ml-auto">
+          <Nav.Item>
+            <Nav.Link>
+              <Link to="/dishes">My Recipes</Link>
+            </Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link>
+              <Link to="/dishes/new">New Recipe</Link>
+            </Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            
+          { loggedIn ? <Logout/> : null }
+          </Nav.Item>
+      
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
+</Styles>
     )
 }
 

@@ -2,6 +2,8 @@ import React from "react";
 import { connect } from 'react-redux'
 import { updateLoginForm } from "../actions/loginForm.js"
 import { login } from "../actions/currentUser.js"
+import { Form, Button } from "react-bootstrap";
+
 
 
 
@@ -23,13 +25,41 @@ import { login } from "../actions/currentUser.js"
           }
 
     return (
-        <form onSubmit={handleSubmit}>
-        <input placeholder="username" value={loginFormData.username}
-         name="username" type="text" onChange={handleInputChange} />
-        <input placeholder="password" value={loginFormData.password}
-         name="password" type="text" onChange={handleInputChange} />
-        <input type="submit" value="Log In"/>
-      </form>
+      
+
+
+
+<Form onSubmit={handleSubmit}>
+
+<Form.Group className="mb-3" controlId="formBasicEmail">
+  <Form.Label>Username</Form.Label>
+  <Form.Control type="text" placeholder="Enter username" value={loginFormData.username}
+         name="username" onChange={handleInputChange} />
+  <Form.Text className="text-muted">
+    We'll never share your username with anyone else.
+  </Form.Text>
+</Form.Group>
+
+<Form.Group className="mb-3" controlId="formBasicPassword">
+  <Form.Label>Password</Form.Label>
+  <Form.Control type="password" placeholder="Password" value={loginFormData.password}
+         name="password" onChange={handleInputChange} />
+</Form.Group>
+
+<Button variant="primary" type="submit">
+  Log In
+</Button>
+</Form>
+
+
+
+
+
+
+
+
+
+
     )
 }
 
