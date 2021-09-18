@@ -50,7 +50,7 @@ const handleChange = event => {
                    
             <input
                 type="submit"
-                value={editMode ? "Update Trip" : "Create Trip" }
+                value={editMode ? "Update Recipe" : "Create Recipe" }
             />
         </form>
 )};

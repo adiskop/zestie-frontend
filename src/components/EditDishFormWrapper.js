@@ -31,7 +31,7 @@ class EditDishFormWrapper extends React.Component {
     return  <>
               <DishForm editMode handleSubmit={this.handleSubmit} />
               <br/>
-              <button style={{color: "red"}} onClick={()=>deleteDish(dishId, history)}>Delete this dish</button>
+              <button style={{color: "red"}} onClick={()=>deleteDish(dishId, history)}>Delete Recipe</button>
             </>
   }
 };

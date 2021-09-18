@@ -1,4 +1,5 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { connect } from 'react-redux'
 import { getCurrentUser } from "./actions/currentUser.js"

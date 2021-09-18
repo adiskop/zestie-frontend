@@ -8,9 +8,10 @@ import Logout from "./Logout";
 const NavBar = ({currentUser, loggedIn }) => {
     return (
         <div className="NavBar">
-          <NavLink exact activeClassName="active" to="/dishes">My Dishes  |  </NavLink>
-          <NavLink exact activeClassName="active" to="/dishes/new">New Recipe  |  </NavLink>
+          <NavLink exact activeClassName="active" to="/dishes">My Recipes</NavLink>
+          <NavLink exact activeClassName="active" to="/dishes/new">New Recipe</NavLink>
           { loggedIn ? <><p id="loggedin">Logged in as {currentUser.attributes.name}</p><Logout/></> : null}
+          <br/><br/><br/>
         </div>
     )
 }

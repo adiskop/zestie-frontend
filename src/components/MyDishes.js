@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const MyDishes = props => {
     const dishCards = props.dishes.length > 0 ?
       props.dishes.map(d => (<p key={d.id}>
-        <Link to={`/dishes/${d.id}`}>{d.attributes.name} ---> 
+        <Link to={`/dishes/${d.id}`}><strong>{d.attributes.name}</strong><br/><br/> 
         {<img src ={d.attributes.picture} className="dishes-picture-small" alt=""/>}
         </Link></p>)) :
       null
