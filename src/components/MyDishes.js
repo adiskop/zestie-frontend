@@ -1,31 +1,35 @@
-import React from "react";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { React } from 'react';
+import { Card, Button, CardGroup } from 'react-bootstrap';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 
 const MyDishes = props => {
-    const dishCards = props.dishes.length > 0 ?
-      props.dishes.map(d => (<p key={d.id}>
-        <Link to={`/dishes/${d.id}`}><strong>{d.attributes.name}</strong><br/><br/> 
-        {<img src ={d.attributes.picture} className="dishes-picture-small" alt=""/>}
-        </Link></p>)) :
-      null
+    const { dishes } = props;
 
-
-  
-    return dishCards
-
-
-
-    
-  }
-
-
+    return (
+        <CardGroup style={{display: 'flex', flexDirection: 'row'}}>
+            {dishes.length > 0 &&
+                dishes.map(d => (
+                    <Card key={d.id} style={{ width: '100em' }} style={{flex: 1}}>
+                        <Card.Img variant="top" src={d.attributes.picture} />
+                        <Card.Body>
+                            <Card.Title>{d.attributes.name}</Card.Title>
+                            <Card.Text>Possibly some text here</Card.Text>
+                            <Link to={`/dishes/${d.id}`}>
+                                <Button variant="primary">Full Recipe</Button>
+                            </Link>
+                        </Card.Body>
+                    </Card>
+                ))}
+        </CardGroup>
+    );
+};
 
 const mapStateToProps = state => {
     return {
         dishes: state.myDishes
-    }
-}
+    };
+};
 
-export default connect(mapStateToProps)(MyDishes)
+export default connect(mapStateToProps)(MyDishes);
