@@ -62,11 +62,8 @@ const handleChange = event => {
                 onChange={handleChange}
                 value={cookTime} />
 </Form.Group>
-
-<Button>
-<input variant="primary" type="submit" value={editMode ? "Update Recipe" : "Create Recipe" }>
-
-</input>
+<Button variant="primary" type="submit">
+    {editMode ? "Update Recipe" : "Create Recipe" }
 </Button>
 
 
