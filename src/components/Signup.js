@@ -28,7 +28,7 @@ import { Form, Button } from "react-bootstrap";
        
 
 
-<Form onSubmit={handleSubmit}>
+<Form onSubmit={handleSubmit}><br></br>
 
 <Form.Group className="mb-3" controlId="formBasicName">
   <Form.Label>Name</Form.Label>

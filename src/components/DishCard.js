@@ -20,7 +20,7 @@ const DishCard = ({ dish }) => {
                 Cook Time: {dish.attributes.cook_time}
                 </Card.Text>
                 <Link to={`/dishes/${dish.id}/edit`}>
-                    <Button variant="primary" size="lg">
+                    <Button variant="primary" size="md">
                         Edit This Recipe
                     </Button>
                     </Link>
