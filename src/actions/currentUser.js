@@ -19,7 +19,7 @@ export const clearCurrentUser = () => {
 // asynchronout actions 
 export const login = (credentials, history) => {
     return dispatch => {
-        return fetch("https://zestie.netlify.app/api/v1/login", {
+        return fetch("http://localhost:3000/api/v1/login", {
             credentials: "include",
             method: "POST",
             headers: {
