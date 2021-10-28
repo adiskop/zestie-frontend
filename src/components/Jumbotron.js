@@ -12,6 +12,15 @@ const Styles = styled.div`
     height: 200px;
     position: relative;
     z-index: -2;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: calc(10px + 2vmin);
+   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
   }
   .overlay {
     background-color: #000;
@@ -29,7 +38,7 @@ export const Jumbotron = () => (
       <Jumbo fluid className="jumbo">
         <div className="overlay"></div>
         <Container>
-          <h1>Welcome</h1>
+          <h1><strong>Welcome</strong></h1>
             <p>This is Zestie</p>
             </Container>
     </Jumbo>

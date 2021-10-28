@@ -5,20 +5,20 @@ import styled from "styled-components";
 import { connect } from 'react-redux'
 import { Button } from "react-bootstrap";
 
+
 import Logout from "./Logout";
 
 const Styles = styled.div`
-
 .navbar {
     background-color: #222;
   }
-
   a, .navbar-brand, .navbar-nav .nav-link {
-    color: #bbb;
+    color: #efefef;
+    padding: 0.7rem;
+    
   }
-
   &:hover {
-    color: white;
+    color: pink;
   }
 }
 `;
@@ -43,10 +43,12 @@ const Styles = styled.div`
               <Link to="/dishes/new">New Recipe</Link>
             </Nav.Link>
           </Nav.Item>
-          <Nav.Item>
-            
+          <Nav.Item>  
           { loggedIn ? <Logout/> : null }
           </Nav.Item>
+
+
+
       
         </Nav>
       </Navbar.Collapse>
