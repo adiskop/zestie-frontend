@@ -12,9 +12,9 @@ import DishCard from "./components/DishCard";
 import NewDishFormWrapper from "./components/NewDishFormWrapper";
 import EditDishFormWrapper from "./components/EditDishFormWrapper";
 import { Switch, Route, withRouter } from "react-router-dom";
-import { Layout } from "./components/Layout.js";
+import { Layout } from "./components/Layout";
 import { Jumbotron } from "./components/Jumbotron";
-
+import TextInput from "./components/TextInput";
 
 class App extends React.Component {
   componentDidMount() {
