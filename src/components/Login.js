@@ -29,7 +29,7 @@ import { Form, Button } from "react-bootstrap";
 
 
 
-<Form onSubmit={handleSubmit}><br></br>
+<Form onSubmit={handleSubmit}>
 
 <Form.Group className="mb-3" controlId="formBasicEmail">
   <Form.Label>Username</Form.Label>

@@ -21,7 +21,7 @@ const handleChange = event => {
 <Form onSubmit={event => {
             event.preventDefault()
             handleSubmit(formData)
-          }}><br></br>
+          }}>
 
 <Form.Group className="mb-3" controlId="formBasicName">
   <Form.Label>Name</Form.Label>

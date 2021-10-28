@@ -32,7 +32,7 @@ class EditDishFormWrapper extends React.Component {
     return  <>
               <DishForm editMode handleSubmit={this.handleSubmit} />
               <br/>
-              <Button variant="primary" size="md" onClick={()=>deleteDish(dishId, history)}>Delete Recipe</Button>
+              <Button variant="primary" size="lg" onClick={()=>deleteDish(dishId, history)}>Delete Recipe</Button>
             </>
   }
 };
