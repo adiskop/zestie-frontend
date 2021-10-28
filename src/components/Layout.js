@@ -2,7 +2,7 @@ import React from "react";
 import { Container } from "react-bootstrap";
 
 
-const Layout = (props) => (
+export const Layout = (props) => (
     
     <Container>
           {props.children}
@@ -10,5 +10,4 @@ const Layout = (props) => (
   
 )
 
-export default Layout;
 
