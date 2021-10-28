@@ -52,7 +52,7 @@ const Styles = styled.div`
 
 
          <Nav.Item>  
-          
+          <TextInput/>
           </Nav.Item>
 
 
