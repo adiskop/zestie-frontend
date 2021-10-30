@@ -4,10 +4,6 @@ import { updateLoginForm } from "../actions/loginForm.js"
 import { login } from "../actions/currentUser.js"
 import { Form, Button } from "react-bootstrap";
 
-
-
-
-
     const Login = ({ loginFormData, updateLoginForm, login, history}) => {
 
         const handleInputChange = event => {
@@ -26,9 +22,6 @@ import { Form, Button } from "react-bootstrap";
 
     return (
       
-
-
-
 <Form onSubmit={handleSubmit}><br></br>
 
 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -50,15 +43,6 @@ import { Form, Button } from "react-bootstrap";
   Log In
 </Button>
 </Form>
-
-
-
-
-
-
-
-
-
 
     )
 }
