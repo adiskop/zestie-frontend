@@ -39,7 +39,7 @@ export const updateDishSuccess = dish => {
 
 export const getMyDishes = () => {
     return dispatch => {
-        return fetch("http://localhost:3000/api/v1/dishes", {
+        return fetch("https://zestie.herokuapp.com/api/v1/dishes", {
             credentials: "include",
             method: "GET",
             headers: {
@@ -69,7 +69,7 @@ export const createDish = (dishData, history) => {
             cook_time: dishData.cookTime,
             user_id: dishData.userId
           }
-        return fetch("http://localhost:3000/api/v1/dishes", {
+        return fetch("https://zestie.herokuapp.com/api/v1/dishes", {
             credentials: "include",
             method: "POST",
             headers: {
@@ -103,7 +103,7 @@ export const updateDish = (dishData, history) => {
         directions: dishData.directions,
         cook_time: dishData.cookTime
       }
-      return fetch(`http://localhost:3000/api/v1/dishes/${dishData.dishId}`, {
+      return fetch(`https://zestie.herokuapp.com/api/v1/dishes/${dishData.dishId}`, {
         credentials: "include",
         method: "PATCH",
         headers: {
@@ -129,7 +129,7 @@ export const updateDish = (dishData, history) => {
 
   export const deleteDish = (dishId, history) => {
     return dispatch => {
-      return fetch(`http://localhost:3000/api/v1/dishes/${dishId}`, {
+      return fetch(`https://zestie.herokuapp.com/api/v1/dishes/${dishId}`, {
         credentials: "include",
         method: "DELETE",
         headers: {
