@@ -12,8 +12,8 @@ import DishCard from "./components/DishCard";
 import NewDishFormWrapper from "./components/NewDishFormWrapper";
 import EditDishFormWrapper from "./components/EditDishFormWrapper";
 import { Switch, Route, withRouter } from "react-router-dom";
-import { Layout } from "./components/Layout";
-import { Jumbotron } from "./components/Jumbotron";
+import Layout from "./components/Layout";
+import Jumbotron from "./components/Jumbotron";
 
 
 class App extends React.Component {
