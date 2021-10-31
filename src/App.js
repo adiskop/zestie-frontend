@@ -12,7 +12,7 @@ import DishCard from "./components/DishCard";
 import NewDishFormWrapper from "./components/NewDishFormWrapper";
 import EditDishFormWrapper from "./components/EditDishFormWrapper";
 import { Switch, Route, withRouter } from "react-router-dom";
-import {Layout} from "./components/Layout";
+import {Layout} from "./components/layout";
 import Jumbotron from "./components/Jumbotron";
 
 
