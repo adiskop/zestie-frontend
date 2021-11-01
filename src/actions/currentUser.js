@@ -19,7 +19,7 @@ export const clearCurrentUser = () => {
 // asynchronout actions 
 export const login = (credentials, history) => {
     return dispatch => {
-        return fetch("https://zestie.herokuapp.com/api/v1/login", {
+        return fetch("https://zestie.herokuapp.com/login", {
             credentials: "include",
             method: "POST",
             headers: {
