@@ -47,7 +47,7 @@ export const signup = (credentials, history) => {
             user: credentials
           }
         return fetch("https://zestie-backend.herokuapp.com/api/v1/signup", {
-            credentials: "include",
+            
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -74,7 +74,7 @@ export const logout = event => {
         dispatch(clearCurrentUser())
         dispatch(clearDishes())
         return fetch("https://zestie-backend.herokuapp.com/api/v1/logout", {
-            credentials: "include", 
+            
             method: "DELETE"
         })
     }
