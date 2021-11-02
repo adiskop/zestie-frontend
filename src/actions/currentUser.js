@@ -20,8 +20,6 @@ export const clearCurrentUser = () => {
 export const login = (credentials, history) => {
     return dispatch => {
         return fetch("https://zestie-backend.herokuapp.com/api/v1/login", {
-            mode: 'no-cors',
-            credentials: "include",
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -85,8 +83,6 @@ export const logout = event => {
 export const getCurrentUser = () => {
     return dispatch => {
         return fetch("https://zestie-backend.herokuapp.com/api/v1/get_current_user", {
-            mode: 'no-cors',
-            credentials: "include",
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
