@@ -20,10 +20,10 @@ export const clearCurrentUser = () => {
 export const login = (credentials, history) => {
     return dispatch => {
         return fetch("https://zestie-backend.herokuapp.com/api/v1/login", {
-            credentials: "include",
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                'Accept': 'application/json'
             },
             body: JSON.stringify(credentials)
         })
@@ -48,10 +48,11 @@ export const signup = (credentials, history) => {
             user: credentials
           }
         return fetch("https://zestie-backend.herokuapp.com/api/v1/signup", {
-            credentials: "include",
+            
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                'Accept': 'application/json'
             },
             body: JSON.stringify(userInfo)
         })
@@ -75,7 +76,7 @@ export const logout = event => {
         dispatch(clearCurrentUser())
         dispatch(clearDishes())
         return fetch("https://zestie-backend.herokuapp.com/api/v1/logout", {
-            credentials: "include", 
+            
             method: "DELETE"
         })
     }
@@ -84,10 +85,10 @@ export const logout = event => {
 export const getCurrentUser = () => {
     return dispatch => {
         return fetch("https://zestie-backend.herokuapp.com/api/v1/get_current_user", {
-            credentials: "include",
             method: "GET",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                'Accept': 'application/json'
             },
             
         })

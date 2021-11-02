@@ -40,10 +40,11 @@ export const updateDishSuccess = dish => {
 export const getMyDishes = () => {
     return dispatch => {
         return fetch("https://zestie-backend.herokuapp.com/api/v1/dishes", {
-            credentials: "include",
+         
             method: "GET",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                'Accept': 'application/json'
             },
             
         })
@@ -70,10 +71,11 @@ export const createDish = (dishData, history) => {
             user_id: dishData.userId
           }
         return fetch("https://zestie-backend.herokuapp.com/api/v1/dishes", {
-            credentials: "include",
+           
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                'Accept': 'application/json'
             },
             body: JSON.stringify(sendableDishData)
         })
@@ -104,10 +106,11 @@ export const updateDish = (dishData, history) => {
         cook_time: dishData.cookTime
       }
       return fetch(`https://zestie-backend.herokuapp.com/api/v1/dishes/${dishData.dishId}`, {
-        credentials: "include",
+        
         method: "PATCH",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          'Accept': 'application/json'
         },
         body: JSON.stringify(sendableDishData)
       })
@@ -130,10 +133,11 @@ export const updateDish = (dishData, history) => {
   export const deleteDish = (dishId, history) => {
     return dispatch => {
       return fetch(`https://zestie-backend.herokuapp.com/api/v1/dishes/${dishId}`, {
-        credentials: "include",
+       
         method: "DELETE",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          'Accept': 'application/json'
         }
       })
         .then(r => r.json())
