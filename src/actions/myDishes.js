@@ -70,7 +70,7 @@ export const createDish = (dishData, history) => {
             cook_time: dishData.cookTime,
             user_id: dishData.userId
           }
-        return fetch("https://zestie-backend.herokuapp.com/api/v1/dishes/${dishData.dishId}", {
+        return fetch("https://zestie-backend.herokuapp.com/api/v1/dishes", {
            
             method: "POST",
             headers: {
